@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event Horizon</title>
+    <meta charset="UTF-8">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script src='config.js'></script>
+    <script src="event_horizon.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    
+    <script>
+      var url = "https://maps.googleapis.com/maps/api/js?key="+config.GOOGLE_MAPS_KEY+"&libraries=places,geometry&callback=initialize";
+      var script = document.createElement("script");
+      script.src = url;
+      document.head.appendChild(script);
+    </script>
+    
+    <!-- Style sheets -->
+    <link rel="stylesheet" href="Event_Horizon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+  </head>
+  
+  <body>
+    <!-- Full screen map area -->
+    <div id="map"></div>
+    
+    <!-- Top bar background -->
+    <div id="top_bar"></div>
+    
+    <!-- Name and search options -->
+    <div id="top_menu">
+      <h1>Event Horizon</h1>
+      
+      <!-- Search options form -->
+      <form id="eventSearch">
+        <!-- Submit -->
+        <button type="button" onclick="search()"><i class="fa fa-search"></i></button>
+        
+        <!-- Radius selector -->
+        <select name="radius" id="radius">
+          <option value="25">25 mi</option>
+          <option value="50" selected>50 mi</option>
+          <option value="100">100 mi</option>
+          <option value="200">200 mi</option>
+        </select>
+        <input type="text" id="radiusLabel" value="Radius:" readonly>
+        
+        <!-- Date end selector -->
+        <input type="text" name="dateEnd" id="dateEnd">
+        <input type="text" id="labelDateEnd" value="To:" readonly>
+        
+        <!-- Date start selector -->
+        <input type="text" name="dateStart" id="dateStart">
+        <input type="text" id="labelDateStart" value="From:" readonly>
+        
+        <script>
+          $('input[name="dateStart"]').daterangepicker({
+            "startDate": moment(),
+            singleDatePicker: true,
+            "opens": "left"
+          });
+          $('input[name="dateEnd"]').daterangepicker({
+            "startDate": moment().add(6,'days'),
+            singleDatePicker: true,
+            "opens": "left"
+          });
+        </script>
+        
+        <!-- Event type selector -->
+        <select name="type" id="type">
+          <option value="All Event Types" selected>All Event Types</option>
+          <option value="Music">Music</option>
+          <option value="Sports">Sports</option>
+          <option value="Theatre">Arts & Theater</option>
+          <option value="Film">Film</option>
+          <option value="Miscellaneous">Other</option>
+        </select>
+        
+        <!-- Location selector -->
+        <input type="text" name="location" id="location" placeholder="Search for city name...">
+      </form>
+    </div>
+    
+    <!-- Events list -->
+    <div id="event_box" style="display: none">
+      <table id="event_list"></table>
+    </div>
+  </body>
+</html>

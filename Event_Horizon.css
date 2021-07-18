@@ -1,0 +1,187 @@
+body {
+	font-family: Arial, sans-serif;
+}
+
+/* Google Maps */
+#map {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.gmnoprint {
+	padding-top: 5.3em;
+}
+
+/* Menu bar */
+#top_menu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	background-color: rgba(0,0,0,0.8);
+}
+
+/* Menu bar title */
+#top_menu h1 {
+	float: left;
+	color: white;
+	font-size: 1.5em;
+	margin-left: 0.5em;
+}
+
+/* Menu bar options */
+::placeholder {
+	color: rgb(190,190,190);
+}
+
+#top_menu button {
+	float: right;
+	color: rgba(0,0,0,0.8);
+	background-color: rgb(192,232,232);
+	font-size: 1.16em;
+  margin: 0.55em 0.55em 0.55em 0em;
+	padding: 0.44em 0.6em;
+	border: none;
+	border-radius: 0.1em;
+}
+
+#top_menu button:hover,button:active,button:focus {
+	color: rgb(0,0,0);
+	background-color: rgb(125,205,205);
+	outline: none;
+	cursor: pointer;
+}
+
+#top_menu input,select,input:focus {
+	float: right;
+	color: rgba(0,0,0,0.8);
+	font-size: 0.98em;
+  margin: 0.73em 0.55em 0.73em 0em;
+	padding: 0.5em 0.55em;
+	border: none;
+	border-radius: 0.1em;
+	outline: none;
+  width: 12em;
+}
+
+#top_menu #dateStart, #top_menu #dateEnd {
+  height: 1.25em;
+	width: 6em;
+}
+
+#top_menu #labelDateStart {
+  height: 1.25em;
+	font-weight: bold;
+	width: 3em;
+	margin-right: -0.2em;
+}
+
+#top_menu #labelDateEnd {
+  height: 1.25em;
+	font-weight: bold;
+	width: 2.6em;
+	margin-right: -0.2em;
+}
+
+#top_menu #radius {
+	width: 5.6em;
+}
+
+#top_menu #radiusLabel {
+	font-weight: bold;
+	width: 3.8em;
+	height: 1.25em;
+	margin-right: -0.2em;
+}
+
+#top_menu #type {
+	width: 10em;
+}
+
+/* Hide filtering options with smaller screen size */
+@media only screen and (max-width: 1142px) {
+  #top_menu #dateStart, #top_menu #dateEnd {
+    display: none;
+  }
+  
+  #top_menu #labelDateStart {
+    display: none;
+  }
+  
+  #top_menu #labelDateEnd {
+    display: none;
+  }
+  
+  #top_menu #radius {
+    display: none;
+  }
+  
+  #top_menu #radiusLabel {
+    display: none;
+  }
+  
+  #top_menu #type {
+    display: none;
+  }
+}
+
+/* Event box scrollbar */
+::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+::-webkit-scrollbar-track {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+/* Event box */
+#event_box {
+	position: absolute;
+  background-color: rgba(0,0,0,0.8);
+	top: 9.9em;
+	right: 0.55em;
+  bottom: 3.7em;
+	width: 24.1em;
+	z-index: 1;
+	border-radius: 0.1em;
+	overflow: auto;
+}
+
+#event_box img {
+	width: 8em;
+  height: 4.8em;
+	border-radius: 0.1em;
+}
+
+#event_box a {
+	color: #aadaff;
+}
+
+#event_box .td_left {
+	padding: 0.6em;
+}
+
+#event_box .td_right {
+	float: left;
+	color: white;
+  padding: 0.6em 1em 0.6em 0em;
+}
+
+#event_box .error {
+  color: darkgray;
+  text-align: center;
+  width: 24.1em;
+  padding-top: 0.6em;
+}
